@@ -118,7 +118,7 @@ function getWeather(request, response) {
           // weatherCache(weatherSummaries, request.query.data.id);
           const SQL = `INSERT INTO weathers (forecast, time, location_id) VALUES ($1, $2, $3);`;
         weatherSummaries.forEach(summary => {
-          const values = [summary.forecast, summary.time, id];
+          const values = [summary.forecast, summary.time, request.query.data.id];
         client.query(SQL, values);
       })
           response.send(weatherSummaries);
