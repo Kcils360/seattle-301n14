@@ -1,9 +1,5 @@
 'use strict';
 
-
-
-
-
 const express = require('express');
 const cors = require('cors');
 const superagent = require('superagent');
@@ -35,17 +31,16 @@ app.listen(PORT, () => console.log(`App is up on ${PORT}`) );
 
 function getLocation(request, response) {
 
-  const locationHandler = {
-    
-    query: request.query.data,
-    
+  const locationHandler = {    
+    query: request.query.data,    
     cacheHit: (results) => { 
       response.send(results.rows[0]);
-    },
-    
+    },    
     cacheMiss: () => {
       Location.fetchLocation(request.query.data)
-        .then( results => response.send(results) );
+        .then( results => {
+          response.send(results) 
+        });
     },
   };
   
@@ -62,9 +57,12 @@ function Location(query,data) {
 
 // Refactor #1: Pull this out of the getLocation function
 Location.prototype.save = function() {
-  let NEWSQL = `INSERT INTO locations (search_query,formatted_query,latitude,longitude) VALUES($1,$2,$3,$4)`;
+  let NEWSQL = `INSERT INTO locations (search_query,formatted_query,latitude,longitude) VALUES($1,$2,$3,$4) RETURNING id`;
   let newValues = Object.values(this);
-  return client.query(NEWSQL, newValues);
+  return client.query(NEWSQL, newValues)
+    .then( res => {
+      return res.rows[0].id;      
+    });
 };
 
 Location.lookupLocation = function(handler) {
@@ -91,8 +89,12 @@ Location.fetchLocation = function(query) {
       if ( ! data.body.results.length ) { throw 'No Data'; }
       else {
         let location = new Location(query, data.body.results[0]);
-        location.save();
-        return location;
+        let loc = location.save()
+          .then( res => {
+            location.id = res;
+            return location;
+          });  
+        return loc;
       }
     }); 
 };
@@ -117,7 +119,6 @@ function getWeather(request, response) {
       if(result.rowCount > 0){
          if((result.rows[0].created_at+15000) > Date.now()){
            //dont forget to delete old stuff
-            //run what's below in the else.
             //maybe you can see a way to DRY this up and refactor as a separate function?
               const _URL = `https://api.darksky.net/forecast/${process.env.WEATHER_API_KEY}/${request.query.data.latitude},${request.query.data.longitude}`;
               return superagent.get(_URL)
@@ -148,7 +149,6 @@ function getWeather(request, response) {
             const summary = new Weather(day);
             weatherSummaries.push(summary);
           });
-          console.log('req id: ', values)
           weatherCache(weatherSummaries, request.query.data.id)
           console.log('first time cache');
           response.send(weatherSummaries);
@@ -160,10 +160,14 @@ function getWeather(request, response) {
       //call a delete function to DELETE FROM weathers WHERE location_id=id
 
       function weatherCache(weatherSummary, id) {
-        console.log('wcache id: ',id)
         const SQL = `INSERT INTO weathers (forecast, time, location_id) VALUES ($1, $2, $3);`;
         weatherSummary.forEach(summary => {
           const values = [summary.forecast, summary.time, id];
         client.query(SQL, values);
       })
     };
+
+    function getLocId(query) {
+      const SQL = `SELECT id FROM locatations WHERE search_query = '${query}';`;
+      return client.query(SQL);
+    }
