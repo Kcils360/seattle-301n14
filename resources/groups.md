@@ -81,42 +81,10 @@
 - AJ || Morgan	
 - Anna || Ahren	
 		
-### Code Challenge 11		
-- James || Morgan || Ahren
-- Ludwin || PT	
-- Mae || Ryan	
-- AJ || Ana	
-- Aaron || Val	
-- Anna || Caroline	
-		
-### Code Challenge 12		
-- AJ || James || Ryan
-- Caroline || Val	
-- PT || Morgan	
-- Aaron || Mae	
-- Anna || Ana	
-- Ahren || Ludwin	
-		
-### Code Challenge 13		
-- Morgan || Ana	|| PT
-- Ahren || Ryan	
-- James || Caroline	
-- Ludwin || Aaron	
-- Val || Mae	
-- Anna || AJ	
-		
-### Code Challenge 14		
-- Val || Ludwin || Mae
-- Ahren || Caroline	
-- James || Aaron	
-- Ryan || Ana	
-- PT || AJ	
-- Anna || Morgan	
-		
-### Code Challenge 15		
-- Ludwin || Ana || Ahren
-- James || PT	
-- Morgan || Caroline	
-- Ryan || Val
-- Aaron || Anna	
-- AJ || Mae	
+### Book App Partners
+- Caroline || Mae || Val
+- PT || Ryan
+- James || AJ
+- Ana || Morgan
+- Ahren || Ludwin
+- Anna || Aaron
