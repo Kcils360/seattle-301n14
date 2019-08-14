@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <h1>My Grocery List</h1>
+        <p><a href="/">Home</a></p>
+        <ul>
+            <% listOfQuants.forEach(item => { %>
+                <li> Name: <%= item.name %> </li>
+                <li> Quantity: <%= item.quantity %> </li>
+           <% }) %>
+        </ul>
+    </body>
+</html>

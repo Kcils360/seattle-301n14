@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+   <body>
+       <head>
+           <title>Show Books</title>
+       </head>
+       <ul>
+           <% searchResults.forEach(item => { %>
+               <p>Title: <%= item.title %></p>
+          <% }) %>
+       </ul>
+   </body>
+</html>
