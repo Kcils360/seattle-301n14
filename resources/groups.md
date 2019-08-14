@@ -83,8 +83,8 @@
 		
 ### Book App Partners
 - Caroline || Mae || Val
-- PT || Ryan
+- Ahren || Ryan
 - James || AJ
 - Ana || Morgan
-- Ahren || Ludwin
+- PT || Ludwin
 - Anna || Aaron
