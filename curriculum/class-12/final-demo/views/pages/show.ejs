@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <head>
+            <title>Show Books</title>
+        </head>
+        <ul>
+            <% showTodo.forEach(item => { %>
+                <p>Task: <%= item.task %></p>
+                <p>Description: <%= item.description %></p>
+                <p>Completed: <%= item.completed %></p>
+           <% }) %>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Class 11 Demo</title>
+    </head>
+    <body>
+        <h4>Search Todos</h4>
+        <main>
+            <ul>-Active Todos-
+                <% activeTodos.forEach(item => { %>
+                    <li>Id: <%= item.id %>, Todo: <%= item.task %> </li>
+               <% }) %>
+            </ul>
+            <form action="/show" method="post">
+                <input type="text" name="search" placeholder="Enter a task id" required>
+                <label>ID
+                        <input type="radio" name="search" value="ID">
+                    </label>    
+                    <label>Todo
+                        <input type="radio" name="search" value="todo">
+                    </label>                
+                <button type="submit">Show</button>
+            </form>
+        </main>
+    </body>
+</html>
