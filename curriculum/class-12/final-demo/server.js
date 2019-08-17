@@ -24,6 +24,7 @@ app.get('/', getTasks);
 app.get('/tasks/:task_id', getOneTask);
 
 app.get('/add', (req, res) => {
+    
     res.render('pages/add');
 })
 app.post('/add', addNewTask);
