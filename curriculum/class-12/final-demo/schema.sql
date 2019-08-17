@@ -10,5 +10,5 @@ CREATE TABLE tasks (
 );
 
 INSERT INTO tasks (title, description, contact, status, category)
-VALUES ('Get some', 'Go and get some', 'Dukes', 'incomplete', 'actions'),
-       ('Get more', 'Go and get more', 'Dukes', 'incomplete', 'actions');
+VALUES ('Put Gas in the car', 'It has to be at least half full', 'Amanda', 'incomplete', 'actions'),
+       ('Buy Apples', 'only the red kind', 'Dukes', 'incomplete', 'actions');
