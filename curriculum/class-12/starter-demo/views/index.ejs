@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include('./layouts/head') %>
         <title>Class 11 Demo</title>
     </head>
-    <header>
-        <%- include('./layouts/header') %>
-    </header>
     <body>
         <h4>Search Todos</h4>
         <main>
             <ul>-Active Todos-
                 <% activeTodos.forEach(item => { %>
-                    <li>Id: <%= item.id %> task: <%= item.title %> 
-                        <button><a href="/tasks/<%= item.id %>">View</a></button>
-                    </li>
+                    <li>Id: <%= item.id %>, Todo: <%= item.task %> </li>
                <% }) %>
             </ul>
             <form action="/show" method="post">
@@ -22,14 +16,11 @@
                 <label>ID
                         <input type="radio" name="search" value="ID">
                     </label>    
-                    <label>task
+                    <label>Todo
                         <input type="radio" name="search" value="todo">
                     </label>                
                 <button type="submit">Show</button>
             </form>
         </main>
-        <footer>
-            <%- include('./layouts/footer') %>
-        </footer>
     </body>
 </html>
