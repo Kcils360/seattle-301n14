@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../layouts/head') %>
+        <title>Add a task</title>
+    </head>
+    <body>
+        <header>
+            <%- include('../layouts/header') %>
+        </header>
+        <main>
+            <h3>Add a new task</h3>
+            <form action="/add" method="post">
+                <fieldset>
+                    <legend>Add a task</legend>
+                    <input type="text" name="title" placeholder="Title">
+                    <textarea name="description" placeholder="Describe the task" cols="30" rows="10"></textarea>
+                    <input type="text" name="contact" placeholder="Contact">
+                    <input type="text" name="status" placeholder="Status">
+                    <input type="text" name="category" placeholder="Category">
+                    <button type="submit">Add this task</button>
+                </fieldset>
+
+            </form>
+        </main>
+    </body>
+</html>

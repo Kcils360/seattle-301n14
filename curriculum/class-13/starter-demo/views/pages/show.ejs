@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <%- include('../layouts/head') %>
+                <title>Class 11 Demo</title>
+            </head>
+            <header>
+                <%- include('../layouts/header') %>
+            </header>
+    <body>
+        <ul>
+            <% showTodo.forEach(item => { %>
+                <p>Task: <%= item.title %></p>
+                <p>Description: <%= item.description %></p>
+                <p>Contact: <%= item.contact %></p>
+                <p>Completed: <%= item.status %></p>
+                <button class="edit-button">Edit</button>
+                <form class="hide-me" action="/update" method="post">
+                    <label>Complete
+                        <input type="checkbox" name="status" value="complete">
+                    </label>
+                    <label>Incomplete
+                        <input type="checkbox" name="status" value="incomplete">
+                    </label>   
+                    <input type="hidden" name="id" value="<%= item.id %>">   
+                    <input type="hidden" name=showTodo value="<%=showTodo%>">              
+                    <button type="submit" >Update!</button>
+                </form>
+           <% }) %>
+        </ul>
+        <footer>
+                <%- include('../layouts/footer') %>
+            </footer>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../layouts/head') %>
+        <title>Add a task</title>
+    </head>
+    <body>
+        <header>
+            <%- include('../layouts/header') %>
+        </header>
+        <main>
+            <h3>Add a new task</h3>
+            <%- include('../layouts/form', {formAction: 'create', task: ''}) %>
+        </main>
+            <footer>
+                <%- include('../layouts/footer') %>
+            </footer>
+    </body>
+</html>
