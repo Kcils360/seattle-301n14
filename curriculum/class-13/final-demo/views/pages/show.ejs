@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
         <head>
-            <%- include('../layouts/head') %>
-            <link href="../../public/app.js">
-            <title>Class 11 Demo</title>
+            <%- include('../layouts/head') %>            
         </head>
         <header>
             <%- include('../layouts/header') %>
@@ -15,7 +13,7 @@
                 <p>Description: <%= item.description %></p>
                 <p>Contact: <%= item.contact %></p>
                 <p>Completed: <%= item.status %></p>
-                <button class="edit-button" onclick="showForm()">Update Details</button>
+                <button class="edit-button">Update Details</button>
                 
                 <form action="/tasks/<%= item.id %>" method="post">
                     <input type="hidden" name="_method" value="delete">

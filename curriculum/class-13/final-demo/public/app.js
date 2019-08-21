@@ -1,6 +1,5 @@
 'use strict';
 
-function showForm() {
-  let el = document.getElementById('hide-me');
-  el.classList.remove('hide-me');
-}
+$('.edit-button').on('click', function() {
+  $(this).next().next().removeClass('hide-me');
+});

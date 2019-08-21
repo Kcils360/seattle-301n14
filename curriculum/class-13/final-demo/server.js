@@ -99,7 +99,7 @@ function updateTask(request, response) {
     // destructure variables
     let { title, description, category, contact, status, id } = request.body;
     // need SQL to update the specific task that we were on
-    let SQL = `UPDATE tasks SET title=$1, description=$2, category=$3, contact=$4, status=$5 WHERE id=$6;`;
+    let SQL = 'UPDATE tasks SET title=$1, description=$2, category=$3, contact=$4, status=$5 WHERE id=$6;';
     // use request.params.task_id === whatever task we were on
     let values = [title, description, category, contact, status, id];
     // console.log('update:', request.body);
@@ -113,6 +113,7 @@ function updateTask(request, response) {
                 return response.redirect(`/tasks/${id}`);
             }
         })
+        .catch(err => console.error(err));
 }
 
 function deleteTask(request, response) {
